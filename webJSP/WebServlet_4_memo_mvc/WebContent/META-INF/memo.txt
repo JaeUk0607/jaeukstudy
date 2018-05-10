@@ -1,0 +1,56 @@
+
+원칙) Model2 기반의 MVC 패턴 사용 프로젝트
+Model  (DTO , DAO)
+View (JSP)
+Controller(Servlet)
+
+지금 servlet 연습
+JSP 파일 사용하지 않고 DB작업 (servlet 가지고 웹 서비스 )
+
+create table memo(
+id varchar2(15) not null,
+email varchar2(20) not null,
+content varchar2(100)
+);
+
+DB 작업 : ojdbc6.jar 파일 
+---------------------------------------------------------------------------
+
+
+
+Model :  DAO > memodao.java (DB 연결 , CRUD 함수 , select ,insert ,update, delete 처리 함수)
+         DTO(VO,DOMAIN) > memo.java  (데이터를 담을 수 있는 클래스 : 1건 (DB))
+         memo m = new memo();
+         m.set...
+         
+         
+View  :  memolist.jsp
+         memo.html
+         
+         
+controller : 원칙상  하나의 컨트롤러(Servlet)을 만들어서 처리하는 하는 것인데요
+                         이번 연습에서는 각각의 요청에 대한 Servlet을 만들어 사용하겠습니다.
+                         
+
+MVC 에서 ....                          
+요청   -> Controller 역확을 하는 FrontServlet ->  필요하다면 DAO , DTO 객체 생성 , View 페이지 지정
+                         
+                                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

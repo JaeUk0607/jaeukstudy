@@ -1,0 +1,30 @@
+
+원칙) Model2 기반의 MVC 패턴 사용 프로젝트
+Model  (DTO , DAO)
+View (JSP)
+Controller(Servlet)
+
+지금 servlet 연습
+JSP 파일 사용하지 않고 DB작업 (servlet 가지고 웹 서비스 )
+
+create table memo(
+id varchar2(15) not null,
+email varchar2(20) not null,
+content varchar2(100)
+);
+
+DB 작업 : ojdbc6.jar 파일 
+----------------------------------------------------------------------------------------------
+Url 방식 과 Interface 형식 적용
+
+WebServlet_8_MVC_Member_Url_Interface 와 동일한 형식으로 작성 하시면 됩니다.....
+
+-비동기 처리(ID 검증)
+-jsp 페이지
+(WebContent > WEB-INF > views > jsp 파일
+
+dto
+dao
+service
+controller
+action.....
