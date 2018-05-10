@@ -1,0 +1,2 @@
+HELLO=C:\Temp\a.txt
+HELLO=C:\Temp\new.txt
