@@ -1,0 +1,77 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	/*
+	$.getJSON 함수 받고
+	$.ajax 함수를 사용해서  json 파일 read 해서 table(게시판) 처럼 출력하세요.
+	*/
+		$(function(){
+			
+			
+			$.getJSON("Ex07_Ajax_board.json", function(data) {
+				var table = "<table>";
+				 $(data).each(function (index,obj) {
+					 
+				table+="<tr><td>"+obj.id+"</td><td>"+obj.name+"</td><td>"+obj.title+"</td><td>"+obj.content+"</td></tr>";
+				});
+				  table+="</table>";
+					$('#display').html(table);
+			});
+		});
+
+</script>
+</head>
+<body>
+	<div id="display"></div>
+</body>
+</html>
+<!DOCTYPE html> -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax(
+					  { 
+						url:"Ex07_Ajax_board.json",  
+						type:"POST", //open("POST","Ex....")
+						dataType:"json", //서버가 응답하는 데이터 
+						success:function(data){
+							//console.log(data);
+							//가공작업
+							$('#treedata').append("<tr><td>ID</td><td>NAME</td><td>TITLE</td><td>CONTENT</td></tr>");
+							$.each(data,function(){ //편하게 function(index,obj)
+								//this 데이터 받기
+								//console.log("data : " + this);
+							    //console.log("this 객체 {}");
+							    //console.log(this.id + "/" + this.name);
+								$('#treedata').append("<tr><td>" +this.id +"</td><td>" + this.name +"</td><td>" +this.title +"</td><td>" +this.content +"</td></tr>");
+							});
+						},
+						error:function(xhr){
+							alert(xhr.status); //200 , 404 , 500
+						}
+						
+					  }	
+			       );
+		});
+	
+	</script>
+</head>
+<body>
+<!--  
+$.getJSON() 함수 말고
+$.ajax() 함수를 사용해서 json 파일을 read 해서  (Ex07_Ajax_board.json)
+table 과 함께 출력하세요
+
+-->
+	<table id="treedata" border="1">
+	</table>
+</body>
+</html>

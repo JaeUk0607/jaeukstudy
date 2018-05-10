@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	/*
+	DOM (성능 조금....다루기 편해요)<-> SAX(event 기반)(성능 조금 나은데....다루기 어려워요)
+	*/
+		window.onload = function () {
+			var menode;
+			menode = document.getElementById("me");
+			menode.style.backgroundColor = "yellow"; //css 제어
+			
+			var parentnode = menode.parentNode; //body
+			parentnode.style.backgroundColor = "skyblue";
+			
+			var grandnode;
+			grandnode = parentnode.parentNode; //html
+			grandnode.style.backgroundColor ="green";
+			
+			var my = document.getElementById("mychild");
+			console.log(my);
+			console.log(my.firstChild.nodeName); //요소이름(태그이름)
+			console.log(my.firstChild.innerText); //value 속성 없어요
+			console.log(my.firstChild.nextSibling.innerText); //형제 Text
+			console.log(my.childNodes.length); //모든 LI 요소 개수
+			console.log(my.lastChild.innerText);
+		}
+	
+	
+	</script>
+</head>
+<body>
+<div>A</div><div>B</div><div id="me">C</div><div>D</div><div>E</div>
+<ul id="mychild"><li>AA</li><li>BB</li><li>CC</li></ul>
+</body>
+</html>

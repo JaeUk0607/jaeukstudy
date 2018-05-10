@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.redcolor{color:red}
+		.bluecolor{color:blue}
+		.greencolor{color:green}
+		.whitecolor{color:white}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	/*  
+	 The addClass() method adds one or more class names to the selected elements.
+
+	*/	
+		$(function () {
+			$('td:contains("홍길동")').addClass('redcolor');
+			//기존에 존재하는 css 의 이름을 추가하는 형식
+			$('td:contains("홍길동")')
+			.siblings().addClass('bluecolor')
+			.parent()
+			.find('td:eq(0)') //find(필터적용)
+			.addClass('greencolor'); //다시 홍길동 id 적용
+			
+			//이벤트
+			//$('#btnclick'.on("click":function(){})) >> json 객체는 여러개...
+			$('#btnclick').on('click',function() { alert('click');});
+			$('#btnclick').on('mouseover',function(){
+				document.getElementById('btnclick').style.backgroundColor='red';
+			});
+			$('#btnclick').on('mouseout',function(){
+				document.getElementById('btnclick').style.backgroundColor='white';
+			});
+			
+			
+			
+			
+			
+			//btnclick2 라는 id가진 div 클릭하면
+			//btnclick 라는 id가진 div 태그 click 이벤트를 off 해 보세요
+			
+			//stylediv 라는 id 가진 div 2개 이벤트
+			//mouseover > greencolor  사용자 정의 class  적용하고
+			//mouseout > bluecolor 사용자 정의  class 적용하세요
+			$('#btnclick2').on('click',function(){
+				$('#btnclick'.off());
+					
+				});
+			$('#stylediv').hover(
+					function () {$(this).addClass('greencolor')},
+				    function(){$(this).removeClass().addClass('bluecolor')}
+						
+						
+									
+			);
+			
+			
+		});
+	
+	
+	</script>
+</head>
+<body>
+		<table>
+		<tr>
+			<td>이름</td>
+			<td>나이</td>
+			<td>취미</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>50</td>
+			<td>훔치기</td>
+		</tr>
+		<tr>
+			<td>이순신</td>
+			<td>10</td>
+			<td>싸움</td>
+		</tr>
+		<tr>
+			<td>여러분</td>
+			<td>20</td>
+			<td>잠자기</td>
+		</tr>
+	</table>
+	<hr>
+	<h3>이벤트</h3>
+	<a href="http://www.naver.com">네이버로 바로가기</a>
+	<hr>
+	<div id = "btnclick">click</div>
+	<div id = "btnclick2">click2</div>
+	<div id="stylediv">스타일 적용</div>
+</body>
+</html>

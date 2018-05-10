@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+			QUIZ
+			window.onload 이벤트에서 btnGetData 요소에 onclick 이벤트를 걸고
+			id = txtmassage 요소 객체를 받아서
+			값을(value) console.log() 통해서 출력
+			이용 : DOM Script (get...함수)
+			
+			1.window.onload = function(){} //익명함수
+			hint) onclick 이벤트 함수.... 익명함수 방식으로
+				  btn.onclic = function(){}
+			2.setAttr ...(name,value)
+			getAttr(name) > return value
+			
+			btnCreate 요소에 onclick 이벤트를 걸고
+			input 태그를 동적으로 생성하고 (type = text , id=txtbox, value = 홍길동) 으로 정의하고
+			body 자식요소로 추가
+		*/
+		window.onload = function () { //onload 이벤트 발생시 익명함수 실행하세요
+			var btnobj = document.getElementById("btnGetData");
+			btnobj.onclick = function () { //시점 : 버튼을 클릭할때
+				var txtmsg = document.getElementById("txtmessage");
+				var str ="";
+				str += "id : " + txtmsg.getAttribute("id");
+				str += "\nVALUE : " + txtmsg.getAttribute("value");
+				str += "\nVALUE (값...) : " + txtmsg.value;
+				str += "\nVALUE : " + txtmsg.value.length;
+				console.log(str);
+				
+			}
+			btnCreate.onclick = function () {
+				var input = document.createElement("input");
+				input.setAttribute("type","text");
+				input.setAttribute("id","txtbox");
+				input.setAttribute("value","홍길동");
+				document.body.appendChild(input);
+				
+			}
+		}
+			
+		
+
+
+	</script>
+</head>
+<body>
+	<input type="text" id="txtmessage" value="hello">
+	<input type="button" value="getinfo" id="btnGetData">
+	<hr>
+	<input type="button" value="동적생성" id="btnCreate">
+	
+</body>
+</html>

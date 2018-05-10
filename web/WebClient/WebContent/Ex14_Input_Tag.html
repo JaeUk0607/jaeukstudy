@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Input Tag</title>
+</head>
+<body>
+	<!--
+	 	id =   "userid" >> 식별자(UI 작업에서) CSS, JavaScript 에서 유효한 작업, UI 변경 작업시
+	 	name = "userid" >> name 속성이 없으면 서버(동기)에서 데이터를 받을 수 없다...
+	 					>> login.jsp?userid=kglim.... 
+	  -->
+	<form action="">
+		<fieldset>
+			<legend>Text : Password</legend>
+			Text : <input type="text" id = "userid" name= "userid"><br>
+			Password : <input type = "password" name = "pwd" maxlength="5"><br>
+			<hr>
+			Text2 : <input type="text" name="data" maxlength="10" size = "100px" value="초기값"> <br>
+			readonly(읽기전용,서버 데이터 전송)
+			<input type="text" name="data2" value="hong" readonly>
+			<br>
+			disabled(비활성화,서버 데이터 전송 불가)
+			<input type="text" name="data3" value="kim" disabled>
+		</fieldset>
+		<fieldset>
+			<legend>체크박스 (다중 선택)</legend>
+			농구 : <input type="checkbox" name="sports_1" value="A" checked="checked" >
+			야구 : <input type="checkbox" name="sports_2" value="B" checked>
+			축구: <input type="checkbox" name="sports_3" value="C">
+		<!-- 
+			서버 ?sports_1A=&sports_2=B&sports_3=C
+			String str = request.getParameter("sports_1");
+			String str2 = request.getParameter("sports_2");
+			String str3 = request.getParameter("sports_3");
+			
+			str >>A
+			str >>B
+			str >>C
+			
+			클라이언트 코드
+			<input type = "checkbox" name = "sports" values = "A">
+			<input type = "checkbox" name = "sports" values = "B">
+			<input type = "checkbox" name = "sports" values = "C">
+			
+			  ?sports=A&sports=B&sports=C
+			     
+			     String[] strarr =  request.getParameter("sports");
+			     strarr[0] = "A"
+			     strarr[1] = "B"
+			     strarr[2] = "C"
+		 -->
+		</fieldset>
+		<fieldset>
+			<legend>Select 태그 (단일선택 : 년, 월, 일)</legend>
+			<select name="year">
+				<option value="2018">2018년</option>
+				<option value="2017">2017년</option>
+				<option value="2016">2016년</option>
+				<option value="1993">1993년</option>
+			</select>
+			<!-- 
+				?year=2017&....
+			 -->
+		
+		
+		
+		</fieldset>
+		<fieldset>
+			<legend>Select 태그 (다중선택 : 년, 월, 일)</legend>
+			당신이 좋아하는 과목은 :
+			<select name="items" multiple="multiple">
+				<option value="01">JAVA</option>
+				<option value="02">ORACLE</option>
+				<option value="03">HTML</option>
+				
+			</select>
+			<!-- 
+				?year=2017&....
+			 -->
+		
+		
+		
+		</fieldset>
+		<fieldset>
+			<legend>라디오 버튼(단일 선택 : 남, 여) : name이 같으면..</legend>
+			남:<input type="radio" name="gender" value="1">
+			
+			여:<input type="radio" name="gender" value="2" checked="checked">
+		
+		</fieldset>
+		<fieldset>
+			<legend>기타 등등</legend>
+			화면에 출력이 안되요(소스는 가지고 있고)
+			<input type="hidden" value="1000" name="hdata">
+			<br>
+			<input type="file" name="uploadimage">
+			<br>
+			게시판 글쓰기 (여러줄) (rows, cols 초기크기)
+			<textarea rows="10" cols="10" name="content">입력데이터</textarea>
+			<br>
+			각종 버튼들
+			<input type="button" value="나 눌러봐" onclick="alert('졸립다');">
+			<br>
+			이미지버튼(내부적으로 전송가능)
+			<input type="image" src="images/gang.jpg">
+			<br>
+			<input type="submit" value="전송">
+			<input type="reset" value="초기화">
+			
+		</fieldset>
+		
+	</form>
+</body>
+</html>

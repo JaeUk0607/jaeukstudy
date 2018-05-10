@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	/* 
+		아래 JSON 객체에서 m이라는 속성 image 파일을 출력하세요
+		https://www.flickr.com/services/api/
+		http://api.flickr.com/services/feeds/photos_public.gne?tags=raccoon&tagmode=any&format=json&jsoncallback=?
+   
+				
+			https:\/\/farm5.staticflickr.com\/4782\/40797274301_b4fe4a9e46_m.jpg
+			https:\/\/farm5.staticflickr.com\/4795\/40087668354_182755da94_m.jpg
+			
+			img 동적으로 생성해서
+			img 태그 src="https:\/\/farm5.staticflickr.com\/4782\/40797274301_b4fe4a9e46_m.jpg"
+			
+			body append
+			-----------------------------------
+			Ex24_DOM_Quiz.html (슬라이드 형식으로 ....)
+			
+			
+	*/
+  var data =  {
+				"title": "Recent Uploads tagged raccoon",
+				"link": "https:\/\/www.flickr.com\/photos\/tags\/raccoon\/",
+				"description": "",
+				"modified": "2018-03-14T01:00:45Z",
+				"generator": "https:\/\/www.flickr.com",
+				"items": [
+							   {
+									"title": "Raccoon June 2017",
+									"link": "https:\/\/www.flickr.com\/photos\/11799527@N08\/40797274301\/",
+									"media": {"m":"https:\/\/farm5.staticflickr.com\/4782\/40797274301_b4fe4a9e46_m.jpg"},
+									"date_taken": "2017-06-04T12:05:13-08:00",
+									"description": " <p><a href=\"https:\/\/www.flickr.com\/people\/11799527@N08\/\">coomare<\/a> posted a photo:<\/p> <p><a href=\"https:\/\/www.flickr.com\/photos\/11799527@N08\/40797274301\/\" title=\"Raccoon June 2017\"><img src=\"https:\/\/farm5.staticflickr.com\/4782\/40797274301_b4fe4a9e46_m.jpg\" width=\"240\" height=\"232\" alt=\"Raccoon June 2017\" \/><\/a><\/p> <p>Procyon lotor<br \/> Memorial Lake State Park <br \/> Lebanon Co PA <br \/> 20170604-IMG_8142-2.jpg<\/p>",
+									"published": "2018-03-14T01:00:45Z",
+									"author": "nobody@flickr.com (\"coomare\")",
+									"author_id": "11799527@N08",
+									"tags": "lebanoncounty memoriallakestatepark pastatepark pennsylvania animal raccoon"
+							   },
+							   {
+									"title": "Raccoon June 2017",
+									"link": "https:\/\/www.flickr.com\/photos\/11799527@N08\/40087668354\/",
+									"media": {"m":"https:\/\/farm5.staticflickr.com\/4795\/40087668354_182755da94_m.jpg"},
+									"date_taken": "2017-06-04T12:02:03-08:00",
+									"description": " <p><a href=\"https:\/\/www.flickr.com\/people\/11799527@N08\/\">coomare<\/a> posted a photo:<\/p> <p><a href=\"https:\/\/www.flickr.com\/photos\/11799527@N08\/40087668354\/\" title=\"Raccoon June 2017\"><img src=\"https:\/\/farm5.staticflickr.com\/4795\/40087668354_182755da94_m.jpg\" width=\"240\" height=\"163\" alt=\"Raccoon June 2017\" \/><\/a><\/p> <p>Procyon lotor<br \/> Memorial Lake State Park <br \/> Lebanon Co PA <br \/> 20170604-IMG_8103-2.jpg<\/p>",
+									"published": "2018-03-14T01:00:39Z",
+									"author": "nobody@flickr.com (\"coomare\")",
+									"author_id": "11799527@N08",
+									"tags": "lebanoncounty memoriallakestatepark pastatepark pennsylvania animal raccoon"
+							   },
+							   {
+									"title": "raccoon co-pilot",
+									"link": "https:\/\/www.flickr.com\/photos\/yutakaseki\/38981852460\/",
+									"media": {"m":"https:\/\/farm5.staticflickr.com\/4786\/38981852460_32628cd80e_m.jpg"},
+									"date_taken": "2018-03-10T13:43:15-08:00",
+									"description": " <p><a href=\"https:\/\/www.flickr.com\/people\/yutakaseki\/\">Yutaka Seki<\/a> posted a photo:<\/p> <p><a href=\"https:\/\/www.flickr.com\/photos\/yutakaseki\/38981852460\/\" title=\"raccoon co-pilot\"><img src=\"https:\/\/farm5.staticflickr.com\/4786\/38981852460_32628cd80e_m.jpg\" width=\"240\" height=\"149\" alt=\"raccoon co-pilot\" \/><\/a><\/p> <p>Pentax K1000 SE, Tamron Adaptall-2 90mm f\/2.5, Fujicolor C200, Unicolor<\/p>",
+									"published": "2018-03-13T18:26:39Z",
+									"author": "nobody@flickr.com (\"Yutaka Seki\")",
+									"author_id": "116451027@N08",
+									"tags": "pentaxk1000 fujicolorc200 homedeveloped unicolorpresskit film analogue tamronsp90mmf25 toyota tercel mirror plush tail raccoon"
+							   },
+							   {
+									"title": "021018095725asmweb",
+									"link": "https:\/\/www.flickr.com\/photos\/ecwillet\/40784405731\/",
+									"media": {"m":"https:\/\/farm5.staticflickr.com\/4791\/40784405731_27cc6a3782_m.jpg"},
+									"date_taken": "2018-02-06T10:14:09-08:00",
+									"description": " <p><a href=\"https:\/\/www.flickr.com\/people\/ecwillet\/\">ecwillet<\/a> posted a photo:<\/p> <p><a href=\"https:\/\/www.flickr.com\/photos\/ecwillet\/40784405731\/\" title=\"021018095725asmweb\"><img src=\"https:\/\/farm5.staticflickr.com\/4791\/40784405731_27cc6a3782_m.jpg\" width=\"240\" height=\"185\" alt=\"021018095725asmweb\" \/><\/a><\/p> ",
+									"published": "2018-03-13T10:16:05Z",
+									"author": "nobody@flickr.com (\"ecwillet\")",
+									"author_id": "98365237@N08",
+									"tags": "raccoon nikon nikond500 nikon200500f56 ecwillet ericwillet"
+							   },
+							   {
+									"title": "American Ten Thousand Islands Raccoons in the Mangrove swamp",
+									"link": "https:\/\/www.flickr.com\/photos\/kitmasterbloke\/26839553758\/",
+									"media": {"m":"https:\/\/farm5.staticflickr.com\/4795\/26839553758_36cfcbeb71_m.jpg"},
+									"date_taken": "2018-03-09T16:43:46-08:00",
+									"description": " <p><a href=\"https:\/\/www.flickr.com\/people\/kitmasterbloke\/\">kitmasterbloke<\/a> posted a photo:<\/p> <p><a href=\"https:\/\/www.flickr.com\/photos\/kitmasterbloke\/26839553758\/\" title=\"American Ten Thousand Islands Raccoons in the Mangrove swamp\"><img src=\"https:\/\/farm5.staticflickr.com\/4795\/26839553758_36cfcbeb71_m.jpg\" width=\"233\" height=\"240\" alt=\"American Ten Thousand Islands Raccoons in the Mangrove swamp\" \/><\/a><\/p> <p>Slightly unexpected, this family of Raccoons live amidst the dense Mangrove swamps of the Florida Everglades. The eat shellfish, fish and other animals that get deposited in the mangrove roots as the tide recedes. But, being mammals, they must drink fresh water, which they get every morning from dew on the leaves of the tallest Mangroves.The Ten Thousand Islands Raccoon is a recognised sub-species of the North American Raccoon.<\/p>",
+									"published": "2018-03-09T16:47:13Z",
+									"author": "nobody@flickr.com (\"kitmasterbloke\")",
+									"author_id": "58415659@N00",
+									"tags": "raccoon mangrove everglades swamp animal mammal usa outdoor nature wildlife"
+							   }
+		  
+        			]
+ 			}
+  window.onload = function () {
+		var img = document.getElementById("image");
+		//img.src = data.items[2].media.m;
+		//img.src = data.items[2].media.m;
+		
+		var index = 0;
+		var myphotos = [];
+		for(var index in data.items){
+			myphotos.push(data.items[index].media.m);
+		}
+		img.src = myphotos[index];
+		document.getElementById("prv").onclick = function(){
+			if(index >0){
+				index--;
+				img.src = myphotos[index];
+			}else{
+				alert("이전사진없음");
+			}
+		}
+		document.getElementById("next").onclick = function(){
+			if(index<3){
+				index++;
+				img.src = myphotos[index];
+			}else{
+				alert("다음사진없음");
+			}
+		}
+	}
+/*   console.log(data);
+  var itemsArray = data.items;
+  console.log(itemsArray);
+  for(var index in itemsArray){
+	    var obj = itemsArray[index];
+	    var obj2 =obj.media;
+	    console.log(obj2.m);
+	    document.write("<img src=" + obj2.m + "><br>"); */		
+		
+	
+	</script>
+</head>
+<body>
+	<input type="image"id="image" src="">
+	<hr>
+	<a href="#" id="prv">이전</a>||<a href="#" id="next">다음</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	/* 
+	event attach (다중....)
+	bind() <-> unbind() 2.x
+	on() <-> off() 3.x
+	
+	KEY POINT
+	*/
+	$(function () {
+		//$('p').click(function(){})
+		//$('p').mouseenter(function(){})
+		$('p').on({ //json 객체 활용
+					mouseleave:function(){ $(this).css('background-color','red')},
+					click:function(){$(this).css('background-color','green')},
+					mouseenter:function(){$(this).css('background-color','blue')}
+			
+					});
+		$('button').click(function () {
+			$('p'.off('click'));
+		});
+	});
+	
+	
+	</script>
+</head>
+<body>
+	<p>on 함수 사용해서 다중 이벤트 처리하기</p>
+	<hr>
+	<button>이벤트 제거</button>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type = "text/css">
+    
+    
+    
+    
+    body{
+    
+    background-image: url("Images/apple.jpg");
+    background-size: 400px;
+     background-repeat: no-repeat;
+     background-position: right bottom;
+    
+    }
+    
+    
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /*  */
+    background-color: hotpink;
+}
+li {
+    float: left; /* 반응형 웹 사이트 기본(떠다니다)*/
+}
+li a {
+    display: block; /* block 형태의 모양으로 보여주어라 ...(none 감추기)*/
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111111;
+}
+div#fadeDivText{
+    display: none;
+    background: #F6CEF5;
+    margin-bottom: 100px;
+    margin-left: 300px;
+    position: relative;
+    top : 100px;
+}
+.after-box{
+            float : left;
+            width: 24%;
+            height : 60px;
+            border: 3px solid pink;
+    
+    
+        }
+.img{
+ position: relative;
+ background-image: url("Images/4.png");                                                              
+ height: 75vh;
+ background-size: 150px;
+  
+}
+.img .content{
+     position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%, -50%);                                                                   
+    font-size: 4.7vw;
+     color: pink;
+     z-index: 2;
+     text-align: center;
+}
+ 
+ 
+ 
+ 
+ 
+</style>
+ 
+ 
+</head>
+ 
+<body>
+ 
+<div class="img">
+        <div class="content">
+            <h1>Hello!</h1>
+            <h2>My name is Pikachu</h2>
+        </div>
+        
+    </div>
+ 
+<ul>
+  <li><a href="#Mimik_login">회원가입</a></li>
+  <li><a href="#news">상품보기</a></li>
+  <li><a href="#contact">이벤트</a></li>
+  <li><a href="#about">개인정보</a></li>
+</ul>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<div id="fadeDivText" style="top: 100px; background: #F6CEF5;  width: 615px; overflow: auto; padding: 0px; left: 0px; display: block;">
+ 
+ 
+<div>
+ 
+<!--// join_wrap -->
+<div class="join_wrap" id="join_wrap">
+ 
+<form name="fregisterform" method="post" onsubmit="return fregisterform_submit(this);" enctype="multipart/form-data" autocomplete="off" id="fregisterform">
+    <input type="hidden" name="w" value="">
+    <input type="hidden" name="url" value="%2Fbbs%2Fpop_register_form.php">
+ 
+    
+    <!-- 웹 폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet" type="text/css">
+    
+    <!-- css -->
+    <link rel="stylesheet" href="http://www.rankingdak.com/css/join.css?ver=1"> 
+ 
+    <!-- plugin next -->
+ 
+    <div class="join_close">
+        <a onclick="close_text();"><img src="http://www.rankingdak.com/images/join/close_btn.png" alt="닫기"></a>
+    </div>
+ 
+    <div class="join_header font_noto">
+        <span><img src="http://www.rankingdak.com/images/join/join_title.png" alt="회원가입"></span>
+        <!-- <span class="font_noto">회원</span><span class="font_noto pointColor">가입</span> -->
+    </div>
+    
+    <div class="join_header_title">회원 정보 항목</div>
+    
+    <!-- 입력정보 -->
+    <div class="join_info_box">
+        <table class="join_info_table">
+            <tbody><tr>
+                <td class="join_info_title">아이디</td>
+                <td class="join_info_content">
+                    <input type="text" class="join_input_type" maxlength="16" size="16" id="mb_id" name="mb_id" minlength="3" alphanumericunderline="" itemname="아이디" required="" value="" onchange="fregisterform.mb_id_enabled.value='';">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px">
+                    <div id="mb_id_phrase" class="join_info_text_phrase">※영문자, 숫자, _만 입력 가능. 최소 3자이상 입력하세요.</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="join_info_title">비밀번호</td>
+                <td class="join_info_content">
+                    <input type="password" id="mb_password" name="mb_password" maxlength="15" class="join_input_type" required="" itemname="패스워드" onkeydown="fregisterform.mb_password_chk.value='';fregisterform.mb_password_enabled.value='';">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px">
+                    <div id="mb_password_phrase" class="join_info_text_phrase">※영문은 대소문자를 구분합니다</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="join_info_title">비밀번호<span> 확인</span></td>
+                <td class="join_info_content">
+                    <input type="password" id="mb_password_chk" name="mb_password_chk" maxlength="15" class="join_input_type" required="" itemname="패스워드 확인" onkeydown="fregisterform.mb_password_chk_enabled.value='';"> 
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px">
+                    <div id="mb_password_chk_phrase" class="join_info_text_phrase"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="join_info_title">이름</td>
+                <td class="join_info_content">
+                    <input type="text" id="mb_name" name="mb_name" class="join_input_type" itemname="이름" required="" minlength="2" nospace="" value="" ;="">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px"><div id="mb_name_phrase" class="join_info_text_phrase"></div></td>
+            </tr>
+            <tr>
+                <td class="join_info_title">별명</td>
+                <td class="join_info_con
+                tent">
+                    <input type="text" id="mb_nick" name="mb_nick" class="join_input_type" maxlength="20" minlength="2" required="" itemname="별명" value="" onchange="fregisterform.mb_nick_enabled.value='';">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px"><div id="mb_nick_phrase" class="join_info_text_phrase">※별명을 바꾸시면 앞으로 1일 이내에는 변경이 안됩니다.</div></td>
+            </tr>
+            <tr>
+                <td class="join_info_title">핸드폰<span>번호</span></td>
+                <td class="join_info_content">
+                    <div style="display: table; width: 100%;">
+                        <span class="join_input_span">
+                            <input type="text" id="mb_hp" name="mb_hp" class="join_input_type_short" placeholder="휴대폰번호를 정확히 입력해 주세요" maxlength="11" required="" value="" onkeypress="EnterEvent('phone');">
+                        </span>
+                        <span class="join_input_span2">
+                            <input type="button" id="send_mobile" class="join_btn_type" value="인증번호 전송">
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px"><div id="mb_hp_phrase" class="join_info_text_phrase">※ "-" 없이 숫자만 입력해 주세요</div></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div style="display: table; width: 100%;">
+                        <span class="join_input_span">
+                            <input type="text" id="mb_hp_chk" class="join_input_type_short" onkeypress="EnterEvent('phone_chk');">
+                        </span>
+                        <span class="join_input_span2">
+                            <input type="button" id="send_chk" class="join_btn_type" value="확인">
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px">
+                    <div id="mb_hp_chk_phrase" class="join_info_text_phrase pointColor">※인증번호를 입력하시고 확인 버튼을 눌러주세요.</div>
+                    <!-- <div class="join_info_text_phrase pointColor">LG유플러스 사용 고객 중 인증번호 미 도착시 핸드폰+114(LG유플러스고객센터)로 문의 해 주세요</div> -->
+                </td>
+            </tr>
+            <tr>
+                <td class="join_info_title">이메일</td>
+                <td class="join_info_content">
+                    <div class="join_info_email_box">
+                        <span class="join_email_input_span">
+                            <input type="text" name="email_id" id="email_id" class="join_input_type_short2" onchange="fregisterform.mb_email.value=''; fregisterform.mb_email_enabled.value='';">
+                        </span>
+                        <span class="join_email_mark">@</span>
+                        <span class="join_email_input_span">
+                            <select class="join_input_type_short2" id="email_address_select" onchange="emailAddressChange(this.value);">
+                                
+                            </select>
+                            <input type="hidden" name="email_address" id="email_address" class="join_input_type_short2" onchange="fregisterform.mb_email.value=''; fregisterform.mb_email_enabled.value='';">
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px"><div id="email_phrase" class="join_info_text_phrase"></div></td>
+            </tr>
+            <tr>
+                <td class="join_info_title">생년월일</td>
+                <td class="join_info_content">
+                    <div class="join_info_gender_box">
+                        <span style="width: 34%;">
+                            <select class="join_select_type" id="birth_year" name="birth_year">
+                                <option value="">년</option>
+                                                                    
+                                                            
+                                                        
+                                                            </select>
+                        </span>
+                        <span style="width: 33%;">
+                            <select class="join_select_type border_left_del" id="birth_month" name="birth_month">
+                                <option value="">월</option>
+                                                                
+                                                            </select>
+                        </span>
+                        <span style="width: 33%;">
+                            <select class="join_select_type border_left_del" id="birth_day" name="birth_day">
+                                <option value="">일</option>
+                                                                
+                                                            </select> 
+                        </span>
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px"><div id="birth_phrase" class="join_info_text_phrase"></div></td>
+            </tr>
+            <tr>
+                <td class="join_info_title">성별</td>
+                <td class="join_info_content">
+                    <span class="join_chk_img" onclick="select_gender('M');" id="male">
+                        <img src="http://www.rankingdak.com/images/join/select_btn1.png" alt="">
+                    </span> 
+                    <span class="join_chk_text" onclick="select_gender('M');">남자</span>
+                    <span class="join_chk_img" style="margin-left: 50px;" onclick="select_gender('F');" id="female">
+                        <img src="http://www.rankingdak.com/images/join/select_btn1.png" alt="">
+                    </span>
+                    <span class="join_chk_text" onclick="select_gender('F');">여자</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px"></td>
+                <td style="padding: 0px"><div id="sex_phrase" class="join_info_text_phrase"></div></td>
+            </tr>
+        </tbody></table>
+    </div><!-- join_info_box //-->
+ 
+    
+ 
+    
+</form>
+ 
+    <div class="join_submit_box">
+        <input type="submit" value="회원가입" class="join_submit_type" onclick="fregisterform_submit(fregisterform);">
+    </div>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+ 
+</body>
+</body>
+

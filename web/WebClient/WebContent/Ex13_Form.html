@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개발자 필수 태그(암기)</title>
+</head>
+<body>
+	<form action="Ex13_login.jsp" method="get">
+		<input type="text" name="userid">
+		<input type="text" name="username">
+		<input type="submit" value="전송하기">
+		<!-- <input type="submit" = vaule="전송하기"> -->
+		<input type="image" src="images/gu.jpg"> 
+		<input type="reset" value="취소하기"> 
+	
+	
+	</form>
+	<!--
+		form 태그는 전송을 담당하는 태그 (서버로 >> 웝서버 >> Tomcat)
+		[네이버 >> 회원가입버튼 >> 회원가입페이지 >> 정보입력 >> 완료(전송) >> ]
+		 >> 입력된 데이터 이동 (네트워크) (교통수단) 이용 >> 서버(jsp) >> DB연결 >> Insert >> 완료
+		 
+		 form 전송 수단
+		 두가지 : 배 (method = get) , 비행기(method=post)
+		 웹사이트 주소창
+		 get : login. jsp?userid = kglim&username=hong.....
+		 post :login. jsp (http 프로토콜 내부 (header)에 정보를 숨겨서 전송)
+		 
+		 
+		 action ="" >> 목적지 주소 >> login.jsp
+		 action="Ex13_login.jsp"
+		 
+		 결론 : post 비행기 타고....
+		 get 방식 why?
+		 원칙적인 것은 보내는 데이터는  form 태그 안에 존재.....
+		 
+		 form 태그가 아닌 데이터 서버 전송 (link) >> get 방식사용...
+		 <a herf="login.jsp?boardnum = 100>글상세</a>
+		 
+		운송수단 기장(선장) : submit
+		1. input type = "submit" 전송담당
+		2. input type = "image" 내부적으로 (submit)
+		3. input type = "button" >> javascript (document.form.submit() 호출)
+		 
+	  -->
+</body>
+</html>

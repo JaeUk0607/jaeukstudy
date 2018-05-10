@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+			    //비동기 처리
+			    //$.ajax();
+			    //url."Ex10_jsonlib_emplist.jsp"
+			    //seccess : function(){}
+			    //tr > td 구성
+			    //$('#emplist').append()
+				$.ajax({
+					type : "POST",//전송타입
+					url  : "Ex10_jsonlib_emplist.jsp",//전송주소
+					dataType : "json",
+					success : function(responsedata) {
+					
+					$.each(responsedata, function(i, elt) {
+						$('#emplist').append("<tr><td>"+elt.empno+"</td><td>"
+												   	+elt.ename+"</td><td>"
+													+elt.sal+"</td><td>"
+													+elt.job+"</td></tr>");
+						
+					});
+					
+					},
+					error : function(xhr) {
+						alert('error : ' + xhr.status + '/' + xhr.statusText);
+					}
+				}
+
+				);
+			});
+		});
+	
+	</script>
+</head>
+<body>
+	<h3>EMP LIST</h3>
+	<input type="button" value="EmpList" id="btn">
+	<hr>
+	<table id="emplist" border="1">
+	
+	</table>
+</body>
+</html>

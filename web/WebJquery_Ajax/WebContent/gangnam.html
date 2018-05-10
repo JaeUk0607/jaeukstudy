@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var array = [];
+			
+			$('#btn').click(function(){    // 출력 버튼 클릭시 
+                $('#display').empty();
+				
+				array =  []; //배열을 초기화 시킨다~
+				
+                $.ajax({
+                    url : 'http://openapi.gangnam.go.kr:8088/7842674c6b6a696e35336f50735752/json/GnModelRestaurantDesignate/1/1000/',
+                    dataType:"json", //서버가 client 응답 형식 : html
+                    success:function(data){
+                        var table = "<table border='1'>";
+                        table += "<tr><th>지정일자</th><th>업소명</th><th>소재지도로명</th><th>업태명</th><th>주된음식</th><th>행정동명</th><th>소재지전화번호</th></tr>"
+                        
+                        $.each(data.GnModelRestaurantDesignate.row, function(index, obj) {
+                            if(obj.MAIN_EDF.indexOf($("#txtfood").val()) > -1){
+                            	table += "<tr>";
+                                table += "<td>" + obj.ASGN_YMD + "</td>";
+                                table += "<td>" + obj.UPSO_NM + "</td>";
+                                table += "<td>" + obj.SITE_ADDR_RD + "</td>";
+                                table += "<td>" + obj.SNT_UPTAE_NM + "</td>";
+                                table += "<td>" + obj.MAIN_EDF + "</td>";
+                                table += "<td>" + obj.ADMDNG_NM + "</td>";
+                                table += "<td>" + obj.UPSO_SITE_TELNO + "</td>";
+                                table += "</tr>";
+                                
+                                for (var i = -1; i  < array.length; i++) { //배열이 0인 경우 생각해서 {i=-1(배열이 한개도 들어있지않음)}
+                                	if(i > -1){ //i가 0된 이후 부터(배열 1개 이상 들어있음)
+	                                	if(array[i].hasOwnProperty(ADMDNG_NM)){
+	                                		var cnt = array[i].ADMDNG_NM;
+	                                		array[i].ADMDNG_NM = cnt+1;
+	                                		console.log("들어왔니?");
+	                                		continue;
+	                                	}
+                                	}
+                                	
+									if((i+1) == array.length){
+										var dong = obj.ADMDNG_NM;
+										console.log(dong);
+										array.push({dong+"":1});
+										//array.push.stringify({dong:1});
+									}
+									console.log(array);
+								}
+                            }
+                        });
+                        table += "</table>";
+ 
+                        $('#display').html(table);
+                    }
+                });
+            });
+			
+			$('#btnshow').click(function(){
+				
+                var ctx = document.getElementById("myChart");
+            	var myChart = new Chart(ctx, {
+            	    type: 'bar',
+            	    data: {
+            	        labels: array,
+            	        datasets: [{
+            	            label: '# of Votes',
+            	            data: [12, 19, 3, 5, 2],
+            	            backgroundColor: [
+            	                'rgba(255, 99, 132, 0.2)',
+            	                'rgba(54, 162, 235, 0.2)',
+            	                'rgba(255, 206, 86, 0.2)',
+            	                'rgba(75, 192, 192, 0.2)',
+            	                'rgba(153, 102, 255, 0.2)',
+            	                'rgba(255, 159, 64, 0.2)'
+            	            ],
+            	            borderColor: [
+            	                'rgba(255,99,132,1)',
+            	                'rgba(54, 162, 235, 1)',
+            	                'rgba(255, 206, 86, 1)',
+            	                'rgba(75, 192, 192, 1)',
+            	                'rgba(153, 102, 255, 1)',
+            	                'rgba(255, 159, 64, 1)'
+            	            ],
+            	            borderWidth: 1
+            	        }]
+            	    },
+            	    options: {
+            	        scales: {
+            	            yAxes: [{
+            	                ticks: {
+            	                    beginAtZero:true
+            	                }
+            	            }]
+            	        }
+            	    }
+            	});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h3>음식이름</h3>
+	<input type="text" id="txtfood" >
+    <input type="button" value="검색" id="btn">
+    <input type="button" value="차트보기" id="btnshow">
+	<hr>
+	<div id="display"></div>
+	<canvas id="myChart"></canvas>
+</body>
+</html>

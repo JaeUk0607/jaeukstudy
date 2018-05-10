@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var availableTags = [
+      "강진광",
+      "김명수",
+      "김정권",
+      "김준수",
+      "김희준",
+      "전형준",
+      "황진국",
+      "이아림",
+      "방준석",
+      "신호용",
+      "이창훈",
+      "정민재",
+      "정진수",
+      "정희섭",
+      "강성훈",
+      "김보경",
+      "김진원",
+      "박민식",
+      "아윤근",
+      "전나영",
+      "최재욱",
+      "김래영",
+      "김태웅",
+      "박주원",
+      "배현준",
+      "이웅재",
+      "이진우"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <label for="tags">104기 이름 찾기: </label>
+  <input id="tags">
+</div>
+ 
+ 
+</body>
+</html>

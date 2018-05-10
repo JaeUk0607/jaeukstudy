@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var 
+ = {	
+					
+									
+									"image1":"image/apich1.jpg",
+									"image2":"image/appich2.png",
+									"image3":"image/block.jpg",
+									"image4":"image/flower.jpg",
+									"image5":"image/jellyfish.jpg",
+									"image6":"image/lion1.jpg",
+									"image7":"image/lion2.jpeg",
+									"image8":"image/muji1.JPG",
+		                            "audio1":"audio/horse.ogg"
+							
+							
+						
+					}
+		$(function () {
+			$('#image1').attr("src",data.image1);
+			$('#image2').attr("src",data.image3);
+			$('#image3').attr("src",data.image5);
+			$('#image4').attr("src",data.image7);
+			$('#audio1').attr("src",data.audio1);
+			$('#audio2').attr("src",data.audio1);
+			$('#audio3').attr("src",data.audio1);
+			$('#audio4').attr("src",data.audio1);
+			
+		
+			
+		});
+		
+	
+	
+ 		function start1(){
+			var img = document.getElementById("image1");
+			img.src = data.image2;
+			var audio1 = document.getElementById("audio1");
+			audio1.play();
+			
+		}
+		
+		function stop1(){
+			var img = document.getElementById("image1");
+			img.src = data.image1;
+			var audio1 = document.getElementById("audio1");
+		    audio1.pause();
+		}
+ 		function start2(){
+			var img = document.getElementById("image2");
+			img.src = data.image4;
+			var audio2 = document.getElementById("audio2");
+			audio2.play();
+			
+		}
+		
+		function stop2(){
+			var img = document.getElementById("image2");
+			img.src = data.image3;
+			var audio2 = document.getElementById("audio2");
+		    audio2.pause();
+		}
+ 		function start3(){
+			var img = document.getElementById("image3");
+			img.src = data.image6;
+			var audio3 = document.getElementById("audio3");
+			audio3.play();
+			
+		}
+		
+		function stop3(){
+			var img = document.getElementById("image3");
+			img.src = data.image5;
+			var audio3 = document.getElementById("audio3");
+		    audio3.pause();
+		}
+ 		function start4(){
+			var img = document.getElementById("image4");
+			img.src = data.image8;
+			var audio4 = document.getElementById("audio4");
+			audio4.play();
+			
+		}
+		
+		function stop4(){
+			var img = document.getElementById("image4");
+			img.src = data.image7;
+			var audio4 = document.getElementById("audio4");
+		    audio4.pause();
+		}
+		
+	
+	</script>
+	<style type="text/css">
+	.button{
+			border: none;
+			background-color: white;
+			}
+	
+	</style>
+</head>
+<body>
+
+	<img id = "image1" src="" width = "200px" style="float: left" height = "200px" 
+	     onmouseover="start1()" onmouseout="stop1()">
+	<img id = "image2" src="" width = "200px" style="float: left" height = "200px" 
+	     onmouseover="start2()" onmouseout="stop2()">
+	<img id = "image3" src="" width = "200px" style="float: left" height = "200px" 
+	     onmouseover="start3()" onmouseout="stop3()">
+	<img id = "image4" src="" width = "200px" style="float: left" height = "200px" 
+	     onmouseover="start4()" onmouseout="stop4()">
+						  
+	<audio id="audio1" src="">
+	</audio>
+	<audio id="audio2" src="">
+	</audio>
+	<audio id="audio3" src="">
+	</audio>
+	<audio id="audio4" src="">
+	</audio>
+ 
+
+						  
+	
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<style type="text/css">
+	#div1,#div2{
+		margin: 20px;
+		padding: 200px;
+		float: left;
+		border: 1px solid black;
+	}
+	button{
+		float: left;
+		
+	}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			//document.getElementById('ck1').checked
+			var str = false;
+			//consol.log("진실 : " + $('#ck1'));
+			$('#btn1').click(function () {
+				for(var i=1; i<7; i++){
+				if(document.getElementById('ck'+i).checked){
+					$('#div2').append("<div id = 'dck"+i+"'>"+"<input type = 'checkbox' id = 'ck"+i+"'>"+"test"+i+"</div>");
+					document.getElementById('dck'+i).remove();
+				}
+				}
+					
+			});
+			$('#btn2').click(function () {
+				for(var i=1; i<7; i++){
+				if(document.getElementById('ck'+i).checked){
+					document.getElementById('dck'+i).remove();
+					$('#div1').append("<div id = 'dck"+i+"'>"+"<input type = 'checkbox' id = 'ck"+i+"'>"+"test"+i+"</div>");
+				}
+				}
+					
+			});
+						
+		});
+	
+	
+	</script>
+</head>
+<body>
+<div id = "div1">
+
+         <div id ='dck1'><input type='checkbox' id = 'ck1'>test1</div>
+         <div id ='dck2'><input type='checkbox' id = 'ck2'>test2</div>
+         <div id ='dck3'><input type='checkbox' id = 'ck3'>test3</div>
+         <div id ='dck4'><input type='checkbox' id = 'ck4'>test4</div>
+         <div id ='dck5'><input type='checkbox' id = 'ck5'>test5</div>
+  		 <div id ='dck6'><input type='checkbox' id = 'ck6'>test6</div>
+  		 </div>
+
+<button id = "btn1">추가</button>
+<button id = "btn2">삭제</button>
+<div id = "div2"></div>
+</body>
+</html>

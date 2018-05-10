@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+  $(document).ready(function() {
+     $("#sdata").click(function(){
+    	  
+var jsondata =  {
+    		    "books": [
+    		        {
+    		            "genre": "소설",
+    		            "price": "100",
+    		            "name": "사람은 무엇으로 사는가?",
+    		            "writer": "톨스토이",
+    		            "publisher": "톨스토이 출판사"
+    		        },
+    		        {
+    		            "genre": "소설",
+    		            "price": "300",
+    		            "name": "홍길동전",
+    		            "writer": "허균",
+    		            "publisher": "허균 출판사"
+    		        },
+    		        {
+    		            "genre": "소설",
+    		            "price": "900",
+    		            "name": "레미제라블",
+    		            "writer": "빅토르 위고",
+    		            "publisher": "빅토르 위고 출판사"
+    		        }
+    		    ],
+    		    "persons": [
+    		        {
+    		            "nickname": "남궁민수",
+    		            "age": "25",
+    		            "name": "송강호",
+    		            "gender": "남자"
+    		        },
+    		        {
+    		            "nickname": "예니콜",
+    		            "age": "21",
+    		            "name": "전지현",
+    		            "gender": "여자"
+    		        }
+    		    ]
+    		}
+    	  
+     	  var stringJson = JSON.stringify(jsondata);
+    	  alert(stringJson);
+    	  $.ajax({
+              url: "DataArray3.jsp",
+              type: "GET",
+              data: {"json":stringJson},
+              success: function(data) {                   
+                  alert(data);
+              },
+              error: function(msg, error) {
+                  alert(error);
+              }
+          });  
+    	  
+     });
+  }); 	 
+       /*     $.ajax({
+               url: "DataArray2.jsp",
+               type: "GET",           
+               data: {"jsonArrayData":[{"idx":1,"date":{"title":"책","id":"abcd"}}]},
+               //data: {"jsonArrayData":"aaaaaaaaaaaaaaaa"},
+               success: function(data) {                   
+                   alert(data);
+               },
+               error: function(msg, error) {
+                   alert(error);
+               }
+           });   
+     });
+  });   */
+</script>
+
+</head>
+<body>
+	<input type="button" value="서버 전송" id="sdata">
+</body>
+</html>

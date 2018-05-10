@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<script>
+$(function () {
+	
+	var h = 0;
+	var k = 0;
+	var c = 0;
+	var b = 0;
+	var j = 0;
+	$('#btn').click(function () {
+	$.ajax(
+			{
+				 url : 'http://openapi.gangnam.go.kr:8088/7842674c6b6a696e35336f50735752/json/GnModelRestaurantDesignate/1/1000/',
+                 dataType:"json", //서버가 client 응답 형식 : html
+                 success:function(respon){
+                	 console.log(respon)
+                	 						$.each(respon.GnModelRestaurantDesignate.row, function(index, elt) {
+                	 							console.log(elt);
+                	 							if(elt.SNT_UPTAE_NM=="한식"){
+                	 								h++;
+                	 								console.log("메롱멍청아");
+                	 								console.log("기계는 거짓말을 하지 않아");
+                	 							}else if(elt.SNT_UPTAE_NM == "경양식"){
+                	 								k++;	
+                	 							}else if(elt.SNT_UPTAE_NM == "중국식"){
+                	 								c++;
+                	 							}else if(elt.SNT_UPTAE_NM == "분식"){
+                	 								b++;
+                	 							}else{
+                	 								j++;
+                	 							}
+                	 							 
+                	 						});	
+                		var ctx = document.getElementById("myChart").getContext('2d');
+                		var myChart = new Chart(ctx, {
+                		    
+                			type: 'bar',
+                		    data: {
+                		        labels: ["한식", "경양식", "중국식", "분식","일식"],
+                		        datasets: [{
+                		            label: '강남 음식분류별 수',
+                		            data: [h, k, c, b, j],
+                		            backgroundColor: [
+                		                'rgba(255, 99, 132, 0.2)',
+                		                'rgba(54, 162, 235, 0.2)',
+                		                'rgba(255, 206, 86, 0.2)',
+                		                'rgba(75, 192, 192, 0.2)',
+                		                'rgba(153, 102, 255, 0.2)',
+                		               
+                		            ],
+                		            borderColor: [
+                		                'rgba(255,99,132,1)',
+                		                'rgba(54, 162, 235, 1)',
+                		                'rgba(255, 206, 86, 1)',
+                		                'rgba(75, 192, 192, 1)',
+                		                'rgba(153, 102, 255, 1)',
+                		                
+                		            ],
+                		            borderWidth: 1
+                		        }]
+                		    },
+                		    options: {
+                		        scales: {
+                		            yAxes: [{
+                		                ticks: {
+                		                    beginAtZero:true
+                		                }
+                		            }]
+                		        }
+                		    }
+                		});
+                	
+                 						  }
+			}
+		   )
+		  
+	
+
+
+})
+
+});
+</script>
+</head>
+<body>
+<input type="button" id="btn" value="차트보기">
+<canvas id="myChart" width="400" height="400"></canvas>
+
+</body>
+</html>

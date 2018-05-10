@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <title>Untitled Document</title>
+       <style>
+		body
+		{
+			color:#000;
+		}
+		.check
+		{
+			border:1px solid #ff0000;
+			
+		}
+		
+		div
+		{
+			border:1px solid #63F;
+			margin:10px;
+		}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+       </script>
+       
+       <script type="text/javascript">
+		/* 
+		<!--
+			1. div노드의 자식요소중  class="external"인 모든 노드 찾기.
+			   jQuery("div").find(".external").addClass("check");
+			
+			2. div노드중  class="external"인  모든 노드 찾기.
+			   jQuery("div").filter(".external").addClass("check");
+    	->
+		
+		*/
+		// 1번 소스를 단축한 소스.
+		jQuery(function()
+		{
+			
+			testFind();
+		});
+		
+		function testFind()
+		{
+			
+			// 나오게 하고 싶으려면 이렇게 해야겠죠?
+			jQuery("div").find(".external").addClass("check");
+		}
+       </script>
+</head>
+
+<body>
+	<div id="data_1">
+		<a href="#" class="external">link1_1</a><br/>
+              <a href="#" >link1_2</a><br/>
+              <a href="#" class="external">link1_3</a><br/>
+              <a href="#" class="external">link1_4</a><br/>
+       </div>
+       <div id="data_2">
+		<a href="#" class="external">link2_1</a><br/>
+              <a href="#" >link2_2</a><br/>
+              <a href="#" class="external">link2_3</a><br/>
+              <a href="#" class="external">link2_4</a><br/>
+              <div class="external">
+              	div_data_2
+              </div>
+       </div>
+        <div id="data_3">
+       	<div class="external">
+                     <a href="#" class="external">link3_1</a><br/>
+                     <a href="#" class="external">link3_2</a><br/>
+                     <a href="#" class="external">link3_3</a><br/>
+               </div>
+       </div>
+       
+</body>
+</html>
