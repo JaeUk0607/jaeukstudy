@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.jcombat.controller" />
+
+	<bean id="jsonView"
+		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+
+	<!-- BeanNameViewResolver -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0" />
+	</bean>
+
+	<!-- XmlViewResolver -->
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="location" value="/WEB-INF/xml_views.xml"></property>
+		<property name="order" value="1" />
+	</bean>
+
+	<!-- InternalResourceViewResolver -->
+	<!-- 다수의 뷰리졸버 사용시 InternalResourceViewResolver는  반드시 마지막 순서로 설정해야 한다 -->
+	<!-- 이유는 다른 리졸버들과는 다르게 InternalResourceViewResolver는 적절한 뷰를 찾지 못하면 null을 리턴하지 않고 -->
+	<!-- 에러페이지를 발생시키기 때문이다. 따라서 반드시 InternalResourceViewResolver는 우선순위를 맨 마지막으로 설정! -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+		<property name="order" value="2" />
+	</bean>
+
+
+</beans>
